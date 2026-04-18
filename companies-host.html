@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Host an Intern – ByteWing</title>
+  <meta name="description" content="Connect with driven, pre-screened interns and overcome project backlogs, boost productivity, and make a real impact — all at zero cost to your business." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+    .page-hero {
+      background: var(--teal-dark);
+      padding: calc(var(--nav-height) + 80px) 0 100px;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(249,115,22,0.12), transparent),
+                  radial-gradient(ellipse 40% 70% at 30% 70%, rgba(24,178,184,0.1), transparent);
+    }
+    .page-hero-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .page-hero h1 {
+      font-family: var(--font-main);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 900; color: var(--white); line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .page-hero p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.75); margin-bottom: 36px; line-height: 1.7;
+    }
+    .page-hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-img-block {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+    }
+    .hero-img-block img { width: 100%; display: block; }
+    .hero-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--radius-xl);
+      font-size: 5rem;
+    }
+
+    /* Value Props */
+    .value-section { padding: 100px 0; background: var(--white); }
+    .value-section .section-container { max-width: 1200px; }
+    .value-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px;
+    }
+    .value-card {
+      border-radius: var(--radius-lg); padding: 40px 32px;
+      border: 1px solid var(--border-light); background: var(--off-white);
+      transition: var(--transition);
+    }
+    .value-card:hover {
+      border-color: var(--teal-light); transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(13,59,62,0.1);
+    }
+    .value-card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+    .value-card h3 { font-family: var(--font-main); font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .value-card p { color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
+
+    /* Stats Banner */
+    .stats-banner {
+      background: var(--teal-dark); padding: 80px 0;
+    }
+    .stats-banner-grid {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+    }
+    .banner-stat {
+      text-align: center; padding: 36px 20px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-xl);
+      transition: var(--transition);
+    }
+    .banner-stat:hover { transform: translateY(-4px); border-color: rgba(249,115,22,0.4); }
+    .banner-stat-num {
+      font-family: var(--font-main); font-size: 2.8rem; font-weight: 900; color: var(--orange); display: block; line-height: 1;
+    }
+    .banner-stat p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-top: 10px; line-height: 1.5; }
+
+    /* Testimonial pull-quote */
+    .quote-section { background: var(--off-white); padding: 80px 0; text-align: center; }
+    .big-quote {
+      max-width: 760px; margin: 0 auto; padding: 0 24px;
+      font-family: var(--font-main); font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700; color: var(--teal-dark); line-height: 1.35;
+    }
+    .big-quote::before { content: '"'; font-size: 4rem; color: var(--orange); line-height: 0; vertical-align: -0.5em; margin-right: 8px; }
+
+    /* Press logos */
+    .press-section { padding: 60px 0; background: var(--white); }
+    .press-section .section-title { font-size: 1.2rem; font-weight: 600; color: var(--text-muted); text-align: center; margin-bottom: 32px; }
+
+    /* Resources */
+    .resources-section { padding: 100px 0; background: var(--white); }
+    .resources-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; margin-top: 60px; }
+    .resource-card {
+      background: var(--off-white); border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg); padding: 40px;
+      transition: var(--transition);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .resource-card:hover { border-color: var(--teal-light); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(13,59,62,0.1); }
+    .resource-card h3 { font-family: var(--font-main); font-size: 1.2rem; font-weight: 700; color: var(--text-dark); }
+    .resource-card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; flex: 1; }
+    .resource-tag { display: inline-block; padding: 4px 12px; border-radius: 50px; background: rgba(249,115,22,0.1); color: var(--orange); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; width: fit-content; }
+
+    /* CTA bottom */
+    .bottom-cta {
+      background: var(--teal-dark); padding: 100px 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .bottom-cta::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(249,115,22,0.12), transparent 70%);
+    }
+    .bottom-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; padding: 0 24px; }
+    .bottom-cta h2 { font-family: var(--font-main); font-size: clamp(2rem,4vw,3rem); font-weight: 900; color: var(--white); margin-bottom: 20px; line-height: 1.15; }
+    .bottom-cta p { color: rgba(255,255,255,0.75); margin-bottom: 36px; font-size: 1.05rem; }
+
+    /* Trusted banner */
+    .trusted-banner { background: var(--teal-mid); padding: 20px 0; text-align: center; }
+    .trusted-banner p { color: rgba(255,255,255,0.8); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.3px; }
+
+    @media (max-width: 900px) {
+      .page-hero-inner { grid-template-columns: 1fr; }
+      .hero-img-block, .hero-img-placeholder { display: none; }
+      .value-grid { grid-template-columns: 1fr; }
+      .stats-banner-grid { grid-template-columns: repeat(2,1fr); }
+      .resources-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .stats-banner-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" id="nav-logo-link">
+        <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+        <span class="logo-text">ByteWing</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Companies <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="companies-host.html" class="dropdown-link active-link" role="menuitem">Host an Intern</a>
+            <a href="companies-how.html" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="companies-faqs.html" class="dropdown-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Educators <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="educators-universities.html" class="dropdown-link" role="menuitem">Universities</a>
+            <a href="educators-bootcamps.html" class="dropdown-link" role="menuitem">Bootcamps</a>
+            <a href="educators-governments.html" class="dropdown-link" role="menuitem">Governments</a>
+            <a href="educators-affiliates.html" class="dropdown-link" role="menuitem">Affiliates</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Interns <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="interns-apply.html" class="dropdown-link" role="menuitem">Apply for Internships</a>
+            <a href="index.html#how-it-works" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="index.html#career-fields" class="dropdown-link" role="menuitem">Career Fields</a>
+            <a href="index.html#stories" class="dropdown-link" role="menuitem">Experiences</a>
+            <a href="index.html#faqs" class="dropdown-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Resources <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="blog.html" class="dropdown-link" role="menuitem">Blog</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">About Us <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="index.html#mission" class="dropdown-link" role="menuitem">Our Mission</a>
+            <a href="index.html#team" class="dropdown-link" role="menuitem">Our Team</a>
+            <a href="index.html#join" class="dropdown-link" role="menuitem">Join Us</a>
+            <a href="index.html#press" class="dropdown-link" role="menuitem">Press</a>
+            <a href="index.html#contact" class="dropdown-link" role="menuitem">Contact Us</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-login" id="btn-login">Login / Signup</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="page-hero-content">
+          <div class="hero-badge"><span class="badge-dot"></span> For Companies</div>
+          <h1>Achieve More With<br/>Ready-to-Work Interns</h1>
+          <p>Connect with driven, pre-screened interns, allowing you to overcome project backlogs, boost productivity, and make a real impact — all at zero cost to your business.</p>
+          <div class="page-hero-btns">
+            <a href="#cta" class="btn-primary">Hire Interns</a>
+            <a href="companies-how.html" class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.5);">How It Works</a>
+          </div>
+        </div>
+        <div class="hero-img-placeholder">🏢</div>
+      </div>
+    </section>
+
+    <!-- VALUE PROPS -->
+    <section class="value-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Tackle Your Talent Needs with <span class="gradient-text">Zero Overheads</span></h2>
+          <p class="section-desc">As we face a global skills gap, finding diverse talent and building talent pipelines is a priority for business leaders worldwide. Our platform provides the support you need to onboard the right interns quickly — without hiring or recruitment overheads.</p>
+        </div>
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="value-card-icon">⚡</div>
+            <h3>Get Work Done &amp; Make an Impact</h3>
+            <p>Our platform connects you with ambitious interns worldwide. With built-in support and pre-screened talent, you can move projects forward while shaping the next generation of professionals.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card-icon">🌍</div>
+            <h3>Access a Pool of Ambitious Talent</h3>
+            <p>Harness the power of dedicated interns to grow your business faster, with zero financial burden. Access talent spanning 80+ countries and 18+ career fields.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card-icon">🛡️</div>
+            <h3>Quality Assured, Pre-Screened</h3>
+            <p>Each intern undergoes a rigorous pre-screening process, ensuring they possess both the potential and a growth mindset to add real value to your team from day one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BANNER -->
+    <section class="stats-banner">
+      <div class="stats-banner-grid">
+        <div class="banner-stat">
+          <span class="banner-stat-num">88%</span>
+          <p>of companies would give a positive reference for their interns</p>
+        </div>
+        <div class="banner-stat">
+          <span class="banner-stat-num">$6k</span>
+          <p>saved on average per intern hired when using our platform</p>
+        </div>
+        <div class="banner-stat">
+          <span class="banner-stat-num">1 in 3</span>
+          <p>companies offer their interns further opportunities immediately upon completion</p>
+        </div>
+        <div class="banner-stat">
+          <span class="banner-stat-num">500+</span>
+          <p>ready-made internship project plans for you to select (or create your own)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote-section">
+      <p class="big-quote">Virtual Internships is an Extension of our HR Department</p>
+    </section>
+
+    <!-- PRESS -->
+    <section class="trusted-section" id="trusted">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Trusted by Companies in <span class="gradient-text">80+ Countries</span></h2>
+          <p class="section-desc">As featured in leading global publications and trusted by companies worldwide.</p>
+        </div>
+        <div class="press-row">
+          <div class="press-logo">BBC</div>
+          <div class="press-logo">Business Leader</div>
+          <div class="press-logo">EdTechX</div>
+          <div class="press-logo">Forbes</div>
+          <div class="press-logo">Inside Higher Ed</div>
+          <div class="press-logo">TechCrunch</div>
+          <div class="press-logo">The PIE</div>
+          <div class="press-logo">The Times</div>
+          <div class="press-logo">Times Higher Education</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="resources-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Explore <span class="gradient-text">Further</span></h2>
+          <p class="section-desc">Dive into our comprehensive host company brochures to learn all about hosting and hiring remote interns.</p>
+        </div>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-tag">Brochure</div>
+            <h3>How the Host Company Community Works</h3>
+            <p>Learn everything about joining our host company community, from onboarding interns to managing projects and measuring impact.</p>
+            <a href="#" class="btn-accent" style="width:fit-content;">Download Brochure</a>
+          </div>
+          <div class="resource-card">
+            <div class="resource-tag">Brochure</div>
+            <h3>Why Join the Host Company Community</h3>
+            <p>Discover the strategic benefits of hosting virtual interns and how companies are building future-ready talent pipelines at zero cost.</p>
+            <a href="#" class="btn-accent" style="width:fit-content;">Download Brochure</a>
+          </div>
+          <div class="resource-card">
+            <div class="resource-tag">Report</div>
+            <h3>The Internship Equation Report 2024: Global Insights</h3>
+            <p>Download the internship equation report for global employers — key insights into remote internships, talent trends, and ROI data.</p>
+            <a href="#" class="btn-primary" style="width:fit-content;">Download Report</a>
+          </div>
+          <div class="resource-card">
+            <div class="resource-tag">Article</div>
+            <h3>How to Navigate the Local Talent Shortage</h3>
+            <p>Practical strategies for businesses struggling to find local talent and how virtual internships bridge the global skills gap.</p>
+            <a href="#" class="btn-secondary" style="width:fit-content;">Read Article</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="bottom-cta" id="cta">
+      <div class="bottom-cta-inner">
+        <h2>Find Top Talent and Hire Remote Interns Today</h2>
+        <p>Whether you need project support, fresh perspectives, or a pipeline of future hires — ByteWing connects you with pre-screened, ambitious interns worldwide at zero cost.</p>
+        <a href="#" class="btn-primary">Hire Interns</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo-link">
+            <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+            <span class="logo-text">ByteWing</span>
+          </a>
+          <p class="footer-tagline">Shaping tomorrow's workforce, one internship at a time.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/><path stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="YouTube">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <h5>Companies</h5>
+          <ul>
+            <li><a href="companies-host.html">Host an Intern</a></li>
+            <li><a href="companies-how.html">How It Works</a></li>
+            <li><a href="companies-faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Educators</h5>
+          <ul>
+            <li><a href="educators-universities.html">Universities</a></li>
+            <li><a href="educators-bootcamps.html">Bootcamps</a></li>
+            <li><a href="educators-governments.html">Governments</a></li>
+            <li><a href="educators-affiliates.html">Affiliates</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Interns</h5>
+          <ul>
+            <li><a href="interns-apply.html">Apply for Internships</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="index.html#career-fields">Career Fields</a></li>
+            <li><a href="index.html#stories">Experiences</a></li>
+            <li><a href="index.html#faqs">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>About Us</h5>
+          <ul>
+            <li><a href="index.html#mission">Our Mission</a></li>
+            <li><a href="index.html#team">Our Team</a></li>
+            <li><a href="index.html#join">Join Us</a></li>
+            <li><a href="index.html#press">Press</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ByteWing. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+  <script type="module" src="auth-sync.js"></script>
+  <script src="main.js"></script>
+  <style>
+    .active-link { color: var(--teal-mid) !important; font-weight: 700 !important; }
+  </style>
+</body>
+</html>

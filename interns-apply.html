@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for Internships | ByteWing – Virtual Internships</title>
+  <meta name="description" content="Give yourself an unbeatable advantage with ByteWing Virtual Internships. Apply now for guaranteed real-world work experience across 80+ countries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Apply Form CTA Section ── */
+    .apply-form-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #0a1628 0%, #0f2333 50%, #1a3a4a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .apply-form-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(24, 178, 184, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .apply-form-section::after {
+      content: '';
+      position: absolute;
+      bottom: -200px;
+      left: -200px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .apply-form-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 60px 50px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      position: relative;
+      z-index: 1;
+    }
+    .apply-form-card .form-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #18b2b8, #0d8a8f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(24, 178, 184, 0.3);
+    }
+    .apply-form-card .form-icon svg {
+      width: 40px;
+      height: 40px;
+      color: #fff;
+    }
+    .apply-form-card h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .apply-form-card p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .apply-form-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 48px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(249, 115, 22, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .apply-form-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 40px rgba(249, 115, 22, 0.5);
+    }
+    .apply-form-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 60px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      pointer-events: none;
+    }
+    .apply-form-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+    .apply-form-hint {
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.85rem;
+    }
+    .apply-form-hint svg {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      vertical-align: -2px;
+      margin-right: 4px;
+    }
+
+    /* ── Career Reality Section ── */
+    .reality-section {
+      padding: 100px 0 80px;
+      background: var(--off-white, #fafafa);
+    }
+    .reality-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .reality-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--teal-dark, #0f3d3e);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .reality-content p {
+      color: var(--text-body, #555);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .reality-highlight {
+      background: linear-gradient(135deg, rgba(24,178,184,0.08), rgba(24,178,184,0.03));
+      border-left: 4px solid var(--teal, #18b2b8);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin-top: 24px;
+    }
+    .reality-highlight p {
+      margin-bottom: 0;
+      font-weight: 600;
+      color: var(--teal-dark, #0f3d3e);
+    }
+    .reality-img-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .reality-img-wrapper img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── Answer Section ── */
+    .answer-section {
+      padding: 100px 0;
+      background: linear-gradient(180deg, #fff 0%, #f0fafa 100%);
+      text-align: center;
+    }
+    .answer-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #18b2b8, #0d8a8f);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 20px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+    .answer-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      color: var(--teal-dark, #0f3d3e);
+      margin-bottom: 20px;
+    }
+    .answer-desc {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: var(--text-body, #555);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .answer-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .answer-feature {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .answer-feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(24,178,184,0.15);
+    }
+    .answer-feature .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .answer-feature h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--teal-dark, #0f3d3e);
+      margin-bottom: 8px;
+    }
+    .answer-feature p {
+      color: var(--text-body, #555);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ── Launch Section ── */
+    .launch-section {
+      padding: 80px 0;
+      background: var(--off-white, #fafafa);
+    }
+    .launch-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .launch-img-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .launch-img-wrapper img {
+      width: 100%;
+      display: block;
+    }
+    .launch-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--teal-dark, #0f3d3e);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .launch-content p {
+      color: var(--text-body, #555);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .reality-grid,
+      .launch-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .answer-features {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+      .apply-form-card {
+        padding: 40px 24px;
+      }
+      .apply-form-btn {
+        padding: 16px 36px;
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ───────────────────── SKIP TO CONTENT ───────────────────── -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ───────────────────── NAVBAR ───────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" id="nav-logo-link">
+        <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+        <span class="logo-text">ByteWing</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-companies" aria-haspopup="true" aria-expanded="false">Companies <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="companies-host.html" class="dropdown-link" role="menuitem">Host an Intern</a>
+            <a href="companies-how.html" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="companies-faqs.html" class="dropdown-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-educators" aria-haspopup="true" aria-expanded="false">Educators <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="educators-universities.html" class="dropdown-link" role="menuitem">Universities</a>
+            <a href="educators-bootcamps.html" class="dropdown-link" role="menuitem">Bootcamps</a>
+            <a href="educators-governments.html" class="dropdown-link" role="menuitem">Governments</a>
+            <a href="educators-affiliates.html" class="dropdown-link" role="menuitem">Affiliates</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-interns" aria-haspopup="true" aria-expanded="false">Interns <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="interns-apply.html" class="dropdown-link" role="menuitem">Apply for Internships</a>
+            <a href="index.html#how-it-works" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="index.html#career-fields" class="dropdown-link" role="menuitem">Career Fields</a>
+            <a href="index.html#stories" class="dropdown-link" role="menuitem">Experiences</a>
+            <a href="index.html#faqs" class="dropdown-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-resources" aria-haspopup="true" aria-expanded="false">Resources <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="blog.html" class="dropdown-link" role="menuitem">Blog</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-about" aria-haspopup="true" aria-expanded="false">About Us <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="index.html#mission" class="dropdown-link" role="menuitem">Our Mission</a>
+            <a href="index.html#team" class="dropdown-link" role="menuitem">Our Team</a>
+            <a href="index.html#join" class="dropdown-link" role="menuitem">Join Us</a>
+            <a href="index.html#press" class="dropdown-link" role="menuitem">Press</a>
+            <a href="index.html#contact" class="dropdown-link" role="menuitem">Contact Us</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-login" id="btn-login">Login / Signup</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ───────────────────── MAIN CONTENT ───────────────────── -->
+  <main id="main-content">
+
+    <!-- ── Hero Section ── -->
+    <section class="hero" id="hero" style="min-height: 80vh;">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-container" style="padding-top: 120px;">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Virtual Internships – Interns</span>
+          </div>
+          <h1 class="hero-title" style="font-size: clamp(2rem, 3.5vw, 3rem);">
+            Give Yourself an<br>
+            <span class="gradient-text">Unbeatable Advantage</span>
+          </h1>
+          <p class="hero-subtitle">
+            The only platform that guarantees real-world work experience across the globe
+          </p>
+          <div class="hero-ctas">
+            <a href="https://forms.gle/LXLmij5DWPDSr3mv6" target="_blank" rel="noopener noreferrer" class="btn-primary" id="hero-cta-enroll">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Enroll Now
+            </a>
+            <a href="#how-it-works-intern" class="btn-secondary" id="hero-cta-how">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              How It Works
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-img-wrapper" style="border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border-light);">
+            <img src="images/intership1.jpg" alt="Students working on virtual internships worldwide" class="hero-img" style="max-width: 100%; border-radius: var(--radius-xl);" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Career Reality Section ── -->
+    <section class="reality-section" id="career-reality">
+      <div class="section-container">
+        <div class="reality-grid">
+          <div class="reality-content">
+            <h2>The Reality of Starting <span class="gradient-text">Your Career</span></h2>
+            <p>
+              The need for work experience is essential, but getting a job can be tough. You need experience, but to gain experience, you need a job.
+            </p>
+            <p>
+              Internships are competitive, with <strong>80% of employers</strong> considering it a critical factor for recent graduates. So, what do you do?
+            </p>
+            <div class="reality-highlight">
+              <p>Break the cycle — gain guaranteed real-world experience with Virtual Internships, no matter where you are.</p>
+            </div>
+          </div>
+          <div class="reality-img-wrapper reveal">
+            <img src="images/success_stories.png" alt="Students overcoming career challenges" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── The Answer Section ── -->
+    <section class="answer-section" id="the-answer">
+      <div class="section-container">
+        <div class="answer-badge">The Answer</div>
+        <h2 class="answer-title">Virtual <span class="gradient-text">Internships</span></h2>
+        <p class="answer-desc">
+          Find global work experience in any field or region with Virtual Internships, the No. 1 platform for remote internships.
+        </p>
+        <div class="answer-features">
+          <div class="answer-feature reveal">
+            <div class="feature-icon">🌍</div>
+            <h4>Any Field</h4>
+            <p>Technology, Marketing, Finance, Design, Business Dev and more</p>
+          </div>
+          <div class="answer-feature reveal">
+            <div class="feature-icon">📍</div>
+            <h4>Any Region</h4>
+            <p>Work remotely with companies across 80+ countries worldwide</p>
+          </div>
+          <div class="answer-feature reveal">
+            <div class="feature-icon">🏆</div>
+            <h4>#1 Platform</h4>
+            <p>The world's leading platform for guaranteed remote internships</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Launch Your Career Section ── -->
+    <section class="launch-section" id="launch-career">
+      <div class="section-container">
+        <div class="launch-grid">
+          <div class="launch-img-wrapper reveal">
+            <img src="images/hero.png" alt="Intern working from home on a virtual internship" loading="lazy" />
+          </div>
+          <div class="launch-content">
+            <h2>Launch <span class="gradient-text">Your Career</span></h2>
+            <p>
+              With Virtual Internships, you'll gain valuable skills and knowledge from top companies worldwide, all from the comfort of your own home.
+            </p>
+            <p>
+              Your Virtual Internship is like an extended interview, with major growth and learning outcomes and the potential for further opportunities upon completion.
+            </p>
+            <a href="https://forms.gle/LXLmij5DWPDSr3mv6" target="_blank" rel="noopener noreferrer" class="btn-primary" style="box-shadow: var(--shadow-orange);">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Get Started Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Stats Section ── -->
+    <section class="stats-section" id="stats">
+      <div class="stats-bg">
+        <img src="images/world_map.png" alt="" aria-hidden="true" class="stats-map" style="opacity: 0.05;" />
+      </div>
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Proven Results, <span class="gradient-text">Global Impact</span></h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item reveal" id="stat-i-1">
+            <span class="stat-num" data-target="250">0</span>
+            <span class="stat-suffix">k+</span>
+            <span class="stat-label">Global Internships</span>
+            <span class="stat-sub">Available Now and Growing</span>
+          </div>
+          <div class="stat-item reveal" id="stat-i-2">
+            <span class="stat-num" data-target="80">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">Countries</span>
+            <span class="stat-sub">Internships Available Worldwide</span>
+          </div>
+          <div class="stat-item reveal" id="stat-i-3">
+            <span class="stat-num" data-target="2">0</span>
+            <span class="stat-suffix"></span>
+            <span class="stat-label">One to One</span>
+            <span class="stat-sub">Professional Career Coaching Calls</span>
+          </div>
+          <div class="stat-item reveal" id="stat-i-4">
+            <span class="stat-num" data-target="1">0</span>
+            <span class="stat-suffix"> in 3</span>
+            <span class="stat-label">Interns</span>
+            <span class="stat-sub">Offered Further Opportunities Immediately Upon Completion</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Testimonials Section ── -->
+    <section class="stories-section" id="stories">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Why Students Love <span class="gradient-text">Virtual Internships</span></h2>
+          <p class="section-desc">Join our global network of alumni who have landed prestigious jobs worldwide.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal" id="testimonial-i-1">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">ByteWing gave me the global exposure I needed. I interned with a company in Singapore while studying in the UK, and it completely changed my career trajectory.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg,#6366f1,#8b5cf6)">RM</div>
+              <div class="author-info">
+                <strong>Rachel Martinez</strong>
+                <span>Product Designer at Stripe</span>
+                <span class="author-tag">🇬🇧 UK → 🇸🇬 Singapore</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal" id="testimonial-i-2">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">The career coaching calls were invaluable. My mentor helped me refine my resume and interview skills, and I landed my dream job within 2 months of completing my internship.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg,#06b6d4,#0891b2)">JW</div>
+              <div class="author-info">
+                <strong>James Wright</strong>
+                <span>Data Analyst at Deloitte</span>
+                <span class="author-tag">🇦🇺 Australia</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal" id="testimonial-i-3">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">As a first-generation student, I never thought I'd get international experience. Virtual Internships made it possible without the cost of relocating.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg,#f59e0b,#d97706)">PA</div>
+              <div class="author-info">
+                <strong>Priya Agarwal</strong>
+                <span>Marketing Lead at HubSpot</span>
+                <span class="author-tag">🇮🇳 India → 🇺🇸 USA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         APPLY FORM – GOOGLE FORM LINK (Prominent CTA)
+         ══════════════════════════════════════════════════════════ -->
+    <section class="apply-form-section" id="apply-form">
+      <div class="section-container">
+        <div class="section-header" style="margin-bottom: 48px;">
+          <h2 class="section-title">Start Your Career Journey <span class="gradient-text">with Virtual Internships!</span></h2>
+          <p class="section-desc" style="color: rgba(255,255,255,0.7);">Fill out our quick application form and we'll match you with the perfect internship opportunity.</p>
+        </div>
+        <div class="apply-form-card">
+          <div class="form-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h2>Apply for Your Internship</h2>
+          <p>
+            Complete our application form to get matched with a guaranteed virtual internship. It takes just a few minutes, and our team will guide you through every step.
+          </p>
+          <a href="https://forms.gle/LXLmij5DWPDSr3mv6" target="_blank" rel="noopener noreferrer" class="apply-form-btn" id="apply-google-form-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Get Your Internship
+          </a>
+          <p class="apply-form-hint">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            Secure Google Form · Takes ~5 minutes · Your data is safe
+          </p>
+          <p style="margin-top: 16px; color: rgba(255,255,255,0.55); font-size: 0.9rem;">
+            For more information, mail us at:
+            <a href="mailto:bytewings0@gmail.com" style="color: #18b2b8; font-weight: 600; text-decoration: none;">bytewings0@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How It Works Section ── -->
+    <section class="how-section" id="how-it-works-intern" style="padding: 100px 0;">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+          <p class="section-desc">Four simple steps to launch your global career</p>
+        </div>
+        <div class="how-content">
+          <div class="how-panel active" style="display: block;">
+            <div class="steps-grid">
+              <div class="step-item reveal">
+                <div class="step-number">01</div>
+                <h4>Apply Online</h4>
+                <p>Fill out our application form with your skills, interests, and career goals.</p>
+              </div>
+              <div class="step-item reveal">
+                <div class="step-number">02</div>
+                <h4>Get Matched</h4>
+                <p>We match you with the perfect company & role from 80+ countries worldwide.</p>
+              </div>
+              <div class="step-item reveal">
+                <div class="step-number">03</div>
+                <h4>Start Your Internship</h4>
+                <p>Begin your remote internship, receive mentorship, and build real-world skills.</p>
+              </div>
+              <div class="step-item reveal">
+                <div class="step-number">04</div>
+                <h4>Launch Your Career</h4>
+                <p>Complete with a certificate, portfolio, and potential job offer — 1 in 3 interns do!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Press / Trusted By ── -->
+    <section class="trusted-section" style="padding-top: 60px;">
+      <div class="section-container">
+        <div class="section-header" style="margin-bottom: 30px;">
+          <h3 style="font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); font-weight: 700;">As featured on</h3>
+        </div>
+        <div class="press-row" style="margin-top: 0;">
+          <div class="press-logo reveal">BBC</div>
+          <div class="press-logo reveal">Business Leader</div>
+          <div class="press-logo reveal">EdTechX</div>
+          <div class="press-logo reveal">Forbes</div>
+          <div class="press-logo reveal">Inside Higher Ed</div>
+          <div class="press-logo reveal">TechCrunch</div>
+          <div class="press-logo reveal">The PIE</div>
+          <div class="press-logo reveal">The Times</div>
+          <div class="press-logo reveal">Times Higher Education</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Bottom CTA ── -->
+    <section class="cta-section" id="cta-bottom-intern">
+      <div class="cta-bg-glow"></div>
+      <div class="section-container">
+        <h2 class="cta-title">Ready to Start?<br><span class="gradient-text">Apply Now!</span></h2>
+        <p class="cta-desc">Don't wait — secure your global internship experience today and give yourself the career advantage you deserve.</p>
+        <div class="cta-buttons">
+          <a href="https://forms.gle/LXLmij5DWPDSr3mv6" target="_blank" rel="noopener noreferrer" class="btn-accent" id="cta-apply-form-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Get Your Internship
+          </a>
+          <p style="margin-top: 20px; color: rgba(255,255,255,0.6); font-size: 0.95rem;">
+            For more information, mail us at:
+            <a href="mailto:bytewings0@gmail.com" style="color: #18b2b8; font-weight: 600; text-decoration: none;">bytewings0@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────────────────── FOOTER ───────────────────── -->
+  <footer class="footer" id="footer" style="margin-top: 80px;">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo-link">
+            <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+            <span class="logo-text logo-text-footer">ByteWing</span>
+          </a>
+          <p class="footer-tagline">Shaping tomorrow's workforce, one internship at a time.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="social-btn" aria-label="Twitter">TW</a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">IN</a>
+            <a href="#" class="social-btn" aria-label="TikTok">TK</a>
+            <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Companies</h5>
+          <ul>
+            <li><a href="companies-host.html">Host an Intern</a></li>
+            <li><a href="companies-how.html">How It Works</a></li>
+            <li><a href="companies-faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Educators</h5>
+          <ul>
+            <li><a href="educators-universities.html">Universities</a></li>
+            <li><a href="educators-bootcamps.html">Bootcamps</a></li>
+            <li><a href="educators-governments.html">Governments</a></li>
+            <li><a href="educators-affiliates.html">Affiliates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Interns</h5>
+          <ul>
+            <li><a href="interns-apply.html">Apply for Internships</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="index.html#career-fields">Career Fields</a></li>
+            <li><a href="index.html#stories">Experiences</a></li>
+            <li><a href="index.html#faqs">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>About Us</h5>
+          <ul>
+            <li><a href="index.html#mission">Our Mission</a></li>
+            <li><a href="index.html#team">Our Team</a></li>
+            <li><a href="index.html#join">Join Us</a></li>
+            <li><a href="index.html#press">Press</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Virtual Internships. All right reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="auth-sync.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

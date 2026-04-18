@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | ByteWing – Access Your Global Career Platform</title>
+  <meta name="description" content="Login to ByteWing to manage your virtual internships, access global opportunities, and track your professional growth." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Login Specific Styles ── */
+    :root {
+      --login-bg: #ffffff;
+      --login-accent: #18b2b8;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--login-bg);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .login-container {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    /* Left Side: Image/Branding */
+    .login-visual {
+      flex: 1.2;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px;
+      color: white;
+    }
+
+    .login-visual::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(24, 178, 184, 0.15), transparent 70%);
+      z-index: 0;
+    }
+
+    .login-visual-content {
+      position: relative;
+      z-index: 1;
+      max-width: 500px;
+    }
+
+    .login-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      margin-bottom: 60px;
+    }
+
+    .login-logo img {
+      width: 45px;
+      height: 45px;
+    }
+
+    .login-logo span {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -1px;
+    }
+
+    .login-visual h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .login-visual p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .login-image-layer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 60%;
+        background: url('images/hero.png') no-repeat bottom right;
+        background-size: contain;
+        opacity: 0.4;
+        filter: grayscale(100%) brightness(0.8);
+    }
+
+    /* Right Side: Form */
+    .login-form-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 80px;
+      background: white;
+    }
+
+    .login-form-header {
+      margin-bottom: 40px;
+    }
+
+    .login-form-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .login-form-header p {
+      color: #64748b;
+      font-size: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--login-accent);
+      box-shadow: 0 0 0 4px rgba(24, 178, 184, 0.1);
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #64748b;
+      cursor: pointer;
+    }
+
+    .forgot-pwd {
+      color: var(--login-accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, #18b2b8, #0d8a8f);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(24, 178, 184, 0.2);
+      margin-bottom: 32px;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(24, 178, 184, 0.3);
+    }
+
+    .social-login {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: white;
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .social-btn img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .signup-invite {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+
+    .signup-invite a {
+      color: var(--login-accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 24px 0;
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .divider:not(:empty)::before { margin-right: 1em; }
+    .divider:not(:empty)::after { margin-left: 1em; }
+
+    @media (max-width: 1024px) {
+      .login-visual {
+        display: none;
+      }
+      .login-form-area {
+        padding: 40px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <!-- Left Side -->
+    <div class="login-visual">
+      <a href="index.html" class="login-logo">
+        <img src="images/logo.png" alt="ByteWing Logo" />
+        <span>ByteWing</span>
+      </a>
+      
+      <div class="login-visual-content">
+        <h1>Accelerate Your Career Transition</h1>
+        <p>Access the world's leading virtual internship network and gain real-world experience from top companies globally.</p>
+        
+        <!-- Main Visual Image -->
+        <div style="margin-top: 36px; border-radius: 20px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.1);">
+          <img 
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" 
+            alt="Professionals collaborating on virtual internships globally"
+            style="width: 100%; display: block; object-fit: cover; max-height: 300px;"
+          />
+        </div>
+
+        <div style="display: flex; gap: 16px; margin-top: 28px;">
+          <div style="background: rgba(255,255,255,0.1); padding: 18px 20px; border-radius: 14px; flex: 1; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08);">
+            <span style="font-size: 1.4rem; display: block; margin-bottom: 6px;">🚀</span>
+            <span style="font-weight: 700; font-size: 0.9rem;">Boost Employability</span>
+          </div>
+          <div style="background: rgba(255,255,255,0.1); padding: 18px 20px; border-radius: 14px; flex: 1; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08);">
+            <span style="font-size: 1.4rem; display: block; margin-bottom: 6px;">🌍</span>
+            <span style="font-weight: 700; font-size: 0.9rem;">Global Network</span>
+          </div>
+          <div style="background: rgba(255,255,255,0.1); padding: 18px 20px; border-radius: 14px; flex: 1; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08);">
+            <span style="font-size: 1.4rem; display: block; margin-bottom: 6px;">✅</span>
+            <span style="font-weight: 700; font-size: 0.9rem;">250k+ Internships</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="login-form-area">
+      <div style="max-width: 450px; width: 100%; margin: 0 auto;">
+        
+        <!-- Mobile Logo (only visible on mobile) -->
+        <div style="display: none; justify-content: center; margin-bottom: 40px;" class="mobile-logo">
+             <a href="index.html" class="login-logo" style="margin-bottom: 0;">
+                <img src="images/logo.png" alt="ByteWing Logo" />
+                <span style="color: #0f172a;">ByteWing</span>
+            </a>
+        </div>
+        <style> @media (max-width: 1024px) { .mobile-logo { display: flex !important; } } </style>
+
+        <div class="login-form-header">
+          <h2>Welcome Back</h2>
+          <p>Please enter your details to sign in.</p>
+        </div>
+
+        <form>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="example@gmail.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" placeholder="••••••••" required />
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" class="forgot-pwd">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn-submit">Sign In</button>
+        </form>
+
+        <div class="divider">or continue with</div>
+
+        <div class="social-login">
+          <button class="social-btn">
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
+            Sign in with Google
+          </button>
+          <button class="social-btn">
+            <img src="https://www.svgrepo.com/show/475661/linkedin-color.svg" alt="LinkedIn" />
+            Sign in with LinkedIn
+          </button>
+        </div>
+
+        <div class="signup-invite">
+          Don't have an account? <a href="#">Create an account</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    // Your web app's Firebase configuration (defined in firebase-config.js)
+    // For module compatibility, we ideally want to import the object
+    // Since firebase-config is just a const, we can define it here or import it
+    
+    /* 
+       IMPORTANT: Replace these with your actual Firebase config 
+       or ensure firebase-config.js is correctly populated 
+    */
+    const firebaseConfig = {
+        apiKey: "AIzaSyArH2zi2zEY8caq59PMtB6URlg-zFPMwTo",
+        authDomain: "mindwell-hackathon.firebaseapp.com",
+        projectId: "mindwell-hackathon",
+        storageBucket: "mindwell-hackathon.firebasestorage.app",
+        messagingSenderId: "974505801141",
+        appId: "1:974505801141:web:02e8ff884de36fd56ad5fc",
+        measurementId: "G-5PNYF7QSPW"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
+
+    // Login logic
+    const loginForm = document.querySelector('form');
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if (firebaseConfig.apiKey === "YOUR_API_KEY") {
+            alert("Firebase is not configured yet! Please update firebase-config.js with your project credentials.");
+            return;
+        }
+
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log("Logged in as:", userCredential.user.email);
+            alert("Login successful!");
+            window.location.href = 'index.html';
+        } catch (error) {
+            console.error("Login Error:", error.code, error.message);
+            alert("Error: " + error.message);
+        }
+    });
+
+    // Social Login logic
+    const socialBtns = document.querySelectorAll('.social-btn');
+    socialBtns.forEach(btn => {
+        btn.addEventListener('click', async () => {
+            if (firebaseConfig.apiKey === "YOUR_API_KEY") {
+                alert("Firebase is not configured yet!");
+                return;
+            }
+
+            try {
+                // Assuming first social btn is Google for simplicity in this demo
+                if (btn.innerText.includes('Google')) {
+                    const result = await signInWithPopup(auth, googleProvider);
+                    console.log("Logged in as:", result.user.displayName);
+                    alert("Google Login successful!");
+                    window.location.href = 'index.html';
+                } else {
+                    alert("Social login for this provider is coming soon!");
+                }
+            } catch (error) {
+                console.error("Social Login Error:", error.message);
+                alert("Error: " + error.message);
+            }
+        });
+    });
+  </script>
+  <script type="module" src="auth-sync.js"></script>
+</body>
+</html>

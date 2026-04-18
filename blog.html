@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | ByteWing – Insights on Global Virtual Internships</title>
+  <meta name="description" content="Stay updated with the latest reports, success stories, and insights on virtual internships, AI in the workforce, and global talent trends from ByteWing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Blog Specific Styles ── */
+    :root {
+      --blog-bg: #f8fafc;
+      --card-gradient: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    }
+
+    .blog-hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(24, 178, 184, 0.1), transparent 70%);
+      top: -200px;
+      right: -100px;
+      z-index: 0;
+    }
+
+    .blog-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Featured Report */
+    .featured-report {
+      margin-top: -60px;
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      margin-bottom: 80px;
+    }
+
+    .featured-img {
+      background: #1e293b;
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+    }
+    
+    .featured-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .featured-content {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-label {
+      color: var(--orange);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    .featured-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .featured-desc {
+      color: #475569;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    /* Filters */
+    .blog-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: 1px solid #e2e8f0;
+      background: white;
+      color: #64748b;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+      box-shadow: 0 4px 12px rgba(24, 178, 184, 0.2);
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #f1f5f9;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .card-tags {
+      padding: 24px 24px 0;
+      display: flex;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-body {
+      padding: 20px 24px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .card-excerpt {
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 20px;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+
+    .read-more {
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* Quick Links / Top Row */
+    .top-resources {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .resource-box {
+      background: var(--card-gradient);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+    }
+
+    .resource-box:hover {
+      background: white;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+    }
+
+    .resource-box h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .resource-link {
+        color: var(--teal);
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 100px;
+    }
+
+    .page-num {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      background: white;
+      color: #64748b;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .page-num.active {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+    }
+
+    @media (max-width: 968px) {
+      .featured-report {
+        grid-template-columns: 1fr;
+      }
+      .featured-content {
+        padding: 40px;
+      }
+      .top-resources {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ───────────────────── NAVBAR ───────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" id="nav-logo-link">
+        <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+        <span class="logo-text">ByteWing</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-companies" aria-haspopup="true" aria-expanded="false">Companies <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="companies-host.html" class="dropdown-link" role="menuitem">Host an Intern</a>
+            <a href="companies-how.html" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="companies-faqs.html" class="dropdown-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-educators" aria-haspopup="true" aria-expanded="false">Educators <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="educators-universities.html" class="dropdown-link" role="menuitem">Universities</a>
+            <a href="educators-bootcamps.html" class="dropdown-link" role="menuitem">Bootcamps</a>
+            <a href="educators-governments.html" class="dropdown-link" role="menuitem">Governments</a>
+            <a href="educators-affiliates.html" class="dropdown-link" role="menuitem">Affiliates</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-interns" aria-haspopup="true" aria-expanded="false">Interns <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="interns-apply.html" class="dropdown-link" role="menuitem">Apply for Internships</a>
+            <a href="index.html#how-it-works" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="index.html#career-fields" class="dropdown-link" role="menuitem">Career Fields</a>
+            <a href="index.html#stories" class="dropdown-link" role="menuitem">Experiences</a>
+            <a href="index.html#faqs" class="dropdown-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-resources" aria-haspopup="true" aria-expanded="false">Resources <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="blog.html" class="dropdown-link active" role="menuitem">Blog</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-about" aria-haspopup="true" aria-expanded="false">About Us <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="index.html#mission" class="dropdown-link" role="menuitem">Our Mission</a>
+            <a href="index.html#team" class="dropdown-link" role="menuitem">Our Team</a>
+            <a href="index.html#join" class="dropdown-link" role="menuitem">Join Us</a>
+            <a href="index.html#press" class="dropdown-link" role="menuitem">Press</a>
+            <a href="index.html#contact" class="dropdown-link" role="menuitem">Contact Us</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-login" id="btn-login">Login / Signup</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ───────────────────── BLOG HERO ───────────────────── -->
+  <section class="blog-hero">
+    <div class="blog-container">
+      <h1 class="hero-title">The Latest from <span class="gradient-text">ByteWing</span></h1>
+      <p class="hero-subtitle">Connecting Global Talent With Global Opportunities</p>
+    </div>
+  </section>
+
+  <main class="blog-container">
+    <!-- Featured Report -->
+    <div class="featured-report">
+      <div class="featured-img">
+        <img src="images/hero_universities.png" alt="Mentorship Insight" />
+      </div>
+      <div class="featured-content">
+        <div class="featured-label">Latest Report</div>
+        <h2 class="featured-title">How Mentorship Transforms Internships Into Impact</h2>
+        <p class="featured-desc">
+          The VI50 Report 2025 showcases 50 companies worldwide proving that when internships are structured with mentorship at the core, everyone benefits. Grounded in data from 1,500 interns and 600 employers.
+        </p>
+        <a href="#" class="btn-primary" style="width: fit-content;">Download Now</a>
+      </div>
+    </div>
+
+    <!-- Top Resources -->
+    <div class="top-resources">
+      <div class="resource-box">
+        <div class="tag" style="margin-bottom: 10px;">Universities</div>
+        <h4>If Employers Trust AI Over Grads, What Does It Mean for Higher Ed?</h4>
+        <a href="#" class="resource-link">LEARN MORE →</a>
+      </div>
+      <div class="resource-box">
+        <div class="tag" style="margin-bottom: 10px;">Companies</div>
+        <h4>Building With Interns: Lessons in Successfully Hosting Over 30 Interns</h4>
+        <a href="#" class="resource-link">LEARN MORE →</a>
+      </div>
+      <div class="resource-box">
+        <div class="tag" style="margin-bottom: 10px;">Success Story</div>
+        <h4>Global Experience, Local Impact: University of Cincinnati's IT Shift</h4>
+        <a href="#" class="resource-link">LEARN MORE →</a>
+      </div>
+    </div>
+
+    <!-- Blog Filters -->
+    <div class="blog-filters">
+      <button class="filter-btn active">ALL</button>
+      <button class="filter-btn">Companies</button>
+      <button class="filter-btn">Universities</button>
+      <button class="filter-btn">Interns</button>
+      <button class="filter-btn">News</button>
+      <button class="filter-btn">Success Stories</button>
+      <button class="filter-btn">Governments</button>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-grid" id="blog-grid">
+      <!-- Card 1 -->
+      <article class="blog-card" data-category="companies universities">
+        <div class="card-tags">
+          <span class="tag">Companies</span>
+          <span class="tag">Universities</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Bridging the Gap: How Structured Internships Solve the Training Crisis</h3>
+          <p class="card-excerpt">Discover how structured internships bridge the training gap between education and employment, preparing learners for an AI-driven workforce.</p>
+          <div class="card-footer">
+            <div class="author-info">Apr 7, 2026</div>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="blog-card" data-category="companies universities">
+        <div class="card-tags">
+          <span class="tag">Companies</span>
+          <span class="tag">Universities</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">The AI Training Standoff: Who’s Responsible for AI Readiness?</h3>
+          <p class="card-excerpt">AI readiness is everyone’s concern, but no one owns it. Explore why AI training for interns is falling through the cracks.</p>
+          <div class="card-footer">
+            <div class="author-info">Mar 9, 2026</div>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="blog-card" data-category="companies universities">
+        <div class="card-tags">
+          <span class="tag">Companies</span>
+          <span class="tag">Universities</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">200 Internship Applications, Zero Responses. There Must Be a Better Way</h3>
+          <p class="card-excerpt">AI has flooded hiring funnels and weakened resume signals. Here’s why verified proof is reshaping early-career hiring.</p>
+          <div class="card-footer">
+            <div class="author-info">Mar 4, 2026</div>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="blog-card" data-category="interns universities success-stories">
+        <div class="card-tags">
+          <span class="tag">Intern Stories</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">How a Research Internship Resulted in the Best Applied Learning</h3>
+          <p class="card-excerpt">See how applied learning connects research, stakeholder engagement, and real-world projects to create meaningful outcomes.</p>
+          <div class="card-footer">
+            <div class="author-info">Feb 16, 2026</div>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="blog-card" data-category="companies universities">
+        <div class="card-tags">
+          <span class="tag">Companies</span>
+          <span class="tag">Universities</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">71% of Interns Think AI Makes Hiring Easier. Here's Why They're Wrong.</h3>
+          <p class="card-excerpt">AI makes resumes easier to write, but harder to trust. New research reveals why hiring feels broken for everyone.</p>
+          <div class="card-footer">
+            <div class="author-info">Feb 12, 2026</div>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="blog-card" data-category="companies universities">
+        <div class="card-tags">
+          <span class="tag">Companies</span>
+          <span class="tag">Universities</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Why Visibility Into AI Use Matters More for Interns Than Employees</h3>
+          <p class="card-excerpt">AI is embedded in intern work, but often invisible. This article explores the shadow workflow and its impact on learning.</p>
+          <div class="card-footer">
+            <div class="author-info">Feb 10, 2026</div>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </article>
+      
+      <!-- Card 7 -->
+       <article class="blog-card" data-category="companies">
+        <div class="card-tags">
+          <span class="tag">Companies</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">How SeaBeach77 Scaled Critical Engineering Work with Remote Interns</h3>
+          <p class="card-excerpt">See how SeaBeach77 scaled critical engineering projects, saving 125 hours per month while building future-ready talent.</p>
+          <div class="card-footer">
+            <div class="author-info">Feb 5, 2026</div>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 8 -->
+       <article class="blog-card" data-category="companies">
+        <div class="card-tags">
+          <span class="tag">Companies</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">The Amplifier Effect: How AI Separates High-Performing Interns</h3>
+          <p class="card-excerpt">How AI is reshaping internship performance, amplifying skill gaps, and why judgment is now the real differentiator.</p>
+          <div class="card-footer">
+            <div class="author-info">Jan 19, 2026</div>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <a href="#" class="page-num active">1</a>
+      <a href="#" class="page-num">2</a>
+      <a href="#" class="page-num">...</a>
+      <a href="#" class="page-num">26</a>
+    </div>
+  </main>
+
+  <!-- ───────────────────── FOOTER ───────────────────── -->
+  <footer class="footer" id="footer" style="padding-top: 80px;">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo-link">
+            <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+            <span class="logo-text">ByteWing</span>
+          </a>
+          <p class="footer-tagline">Shaping tomorrow's workforce, one internship at a time.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="social-btn" aria-label="Twitter">TW</a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">IN</a>
+            <a href="#" class="social-btn" aria-label="Tiktok">TK</a>
+            <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Companies</h5>
+          <ul>
+            <li><a href="companies-host.html">Host an Intern</a></li>
+            <li><a href="companies-how.html">How It Works</a></li>
+            <li><a href="companies-faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Educators</h5>
+          <ul>
+            <li><a href="educators-universities.html">Universities</a></li>
+            <li><a href="educators-bootcamps.html">Bootcamps</a></li>
+            <li><a href="educators-governments.html">Governments</a></li>
+            <li><a href="educators-affiliates.html">Affiliates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Interns</h5>
+          <ul>
+            <li><a href="interns-apply.html">Apply for Internships</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="index.html#career-fields">Career Fields</a></li>
+            <li><a href="index.html#stories">Experiences</a></li>
+            <li><a href="index.html#faqs">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>About Us</h5>
+          <ul>
+            <li><a href="index.html#mission">Our Mission</a></li>
+            <li><a href="index.html#team">Our Team</a></li>
+            <li><a href="index.html#join">Join Us</a></li>
+            <li><a href="index.html#press">Press</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ByteWing. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="auth-sync.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQs for Companies – ByteWing</title>
+  <meta name="description" content="Frequently asked questions for host companies using ByteWing's virtual internship platform. Get answers about cost, matching, logistics, and support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page Hero ── */
+    .page-hero {
+      background: var(--teal-dark);
+      padding: calc(var(--nav-height) + 80px) 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(249,115,22,0.1), transparent);
+    }
+    .page-hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; padding: 0 24px; }
+    .page-hero h1 {
+      font-family: var(--font-main);
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      font-weight: 900; color: var(--white); line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.75); line-height: 1.7;
+      max-width: 560px; margin: 0 auto;
+    }
+
+    /* ── FAQ Layout ── */
+    .faq-page-section {
+      padding: 100px 0;
+      background: var(--off-white);
+    }
+    .faq-page-inner {
+      max-width: 900px; margin: 0 auto; padding: 0 24px;
+    }
+    .faq-category-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 50px;
+      background: rgba(13,59,62,0.08); border: 1px solid rgba(13,59,62,0.15);
+      font-size: 0.8rem; font-weight: 700; color: var(--teal-mid);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 32px;
+    }
+    .faq-page-title {
+      font-family: var(--font-main);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .faq-page-subtitle {
+      color: var(--text-muted); font-size: 1rem; line-height: 1.65;
+      margin-bottom: 56px; max-width: 640px;
+    }
+
+    /* FAQ Accordion */
+    .faq-accordion { display: flex; flex-direction: column; gap: 16px; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-item.open {
+      border-color: var(--teal-light);
+      box-shadow: 0 8px 32px rgba(13,59,62,0.1);
+    }
+    .faq-question {
+      width: 100%; text-align: left;
+      padding: 26px 32px;
+      font-size: 1.02rem; font-weight: 600;
+      color: var(--text-dark);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      transition: var(--transition);
+      line-height: 1.4;
+    }
+    .faq-question span { flex: 1; }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.6rem; font-weight: 300;
+      color: var(--teal-mid);
+      transition: transform 0.35s ease;
+      flex-shrink: 0; line-height: 1;
+    }
+    .faq-item.open .faq-question::after { transform: rotate(45deg); }
+    .faq-question:hover { color: var(--teal-mid); background: rgba(26,92,97,0.02); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.45s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 1000px; }
+    .faq-answer-inner {
+      padding: 0 32px 28px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 20px;
+    }
+    .faq-answer-inner p {
+      color: var(--text-body); font-size: 0.97rem; line-height: 1.8;
+    }
+    .faq-answer-inner p + p { margin-top: 14px; }
+
+    /* Still have questions CTA */
+    .still-questions {
+      margin-top: 56px;
+      background: var(--teal-dark);
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .still-questions::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(249,115,22,0.12), transparent 70%);
+    }
+    .still-questions-inner { position: relative; z-index: 1; }
+    .still-questions h3 {
+      font-family: var(--font-main); font-size: 1.8rem; font-weight: 800;
+      color: var(--white); margin-bottom: 12px;
+    }
+    .still-questions p {
+      color: rgba(255,255,255,0.75); font-size: 1rem; margin-bottom: 28px; line-height: 1.6;
+    }
+
+    /* Quick links */
+    .quick-links { padding: 60px 0; background: var(--white); }
+    .quick-links .section-container { max-width: 900px; }
+    .quick-links h2 {
+      font-family: var(--font-main); font-size: 1.4rem; font-weight: 700;
+      color: var(--text-dark); margin-bottom: 24px; text-align: center;
+    }
+    .quick-links-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .quick-link-card {
+      background: var(--off-white); border: 1px solid var(--border-light);
+      border-radius: var(--radius-md); padding: 24px 20px;
+      text-align: center; transition: var(--transition);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .quick-link-card:hover { border-color: var(--teal-light); transform: translateY(-4px); box-shadow: 0 12px 28px rgba(13,59,62,0.08); }
+    .quick-link-card .ql-icon { font-size: 2rem; }
+    .quick-link-card h4 { font-weight: 700; font-size: 0.95rem; color: var(--text-dark); }
+    .quick-link-card p { font-size: 0.82rem; color: var(--text-muted); }
+
+    @media(max-width: 640px) {
+      .faq-question { padding: 20px 20px; font-size: 0.95rem; }
+      .faq-answer-inner { padding: 0 20px 20px; padding-top: 16px; }
+      .still-questions { padding: 36px 24px; }
+      .quick-links-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+        <span class="logo-text">ByteWing</span>
+      </a>
+      <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Companies <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="companies-host.html" class="dropdown-link" role="menuitem">Host an Intern</a>
+            <a href="companies-how.html" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="companies-faqs.html" class="dropdown-link active-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Educators <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="educators-universities.html" class="dropdown-link" role="menuitem">Universities</a>
+            <a href="educators-bootcamps.html" class="dropdown-link" role="menuitem">Bootcamps</a>
+            <a href="educators-governments.html" class="dropdown-link" role="menuitem">Governments</a>
+            <a href="educators-affiliates.html" class="dropdown-link" role="menuitem">Affiliates</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Interns <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="interns-apply.html" class="dropdown-link" role="menuitem">Apply for Internships</a>
+            <a href="index.html#how-it-works" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="index.html#career-fields" class="dropdown-link" role="menuitem">Career Fields</a>
+            <a href="index.html#stories" class="dropdown-link" role="menuitem">Experiences</a>
+            <a href="index.html#faqs" class="dropdown-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Resources <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="blog.html" class="dropdown-link" role="menuitem">Blog</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <button class="nav-btn" aria-haspopup="true" aria-expanded="false">About Us <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="index.html#mission" class="dropdown-link" role="menuitem">Our Mission</a>
+            <a href="index.html#team" class="dropdown-link" role="menuitem">Our Team</a>
+            <a href="index.html#join" class="dropdown-link" role="menuitem">Join Us</a>
+            <a href="index.html#press" class="dropdown-link" role="menuitem">Press</a>
+            <a href="index.html#contact" class="dropdown-link" role="menuitem">Contact Us</a>
+          </div>
+        </div>
+      </nav>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-login" id="btn-login">Login / Signup</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="hero-badge"><span class="badge-dot"></span> For Host Companies</div>
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything you need to know about hosting virtual interns through ByteWing's platform.</p>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-page-section">
+      <div class="faq-page-inner">
+
+        <div class="faq-category-label">🏢 For Host Companies</div>
+        <h2 class="faq-page-title">Your Questions, <span class="gradient-text">Answered</span></h2>
+        <p class="faq-page-subtitle">Browse through our most frequently asked questions below. If you can't find what you're looking for, sign up and connect with one of our advisors.</p>
+
+        <div class="faq-accordion" id="faq-accordion">
+
+          <div class="faq-item" id="faq-c-1">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do I have to pay to host a remote intern?</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>No, there is no fee associated with hosting virtual interns through our platform. ByteWing offers our services free of charge to Host Companies. We believe in providing accessible opportunities for both companies and interns, allowing you to benefit from the talents and skills of our diverse pool of virtual interns without any financial obligations.</p>
+                <p>It's important to note that any payments such as salary or stipends are at the discretion of the Host Company. Many Host Companies have had positive experiences and have gone on to offer their interns further opportunities beyond the internship.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-c-2">
+            <button class="faq-question" aria-expanded="false">
+              <span>What are the intern backgrounds? Do they have experience and work-ready skills? How good is their English proficiency?</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>ByteWing attracts a diverse pool of talented interns from various academic backgrounds and levels of experience. We have both undergraduate and graduate students participating, having studied a wide range of subjects including business, marketing, finance, technology, engineering, graphic design, social sciences, and more.</p>
+                <p>We assess the skills and qualifications of each intern during our selection process to ensure they possess work-ready skills relevant to your specific project or role. Moreover, we prioritize English proficiency — all our interns are required to have a good command of English to effectively communicate and contribute to your organization.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-c-3">
+            <button class="faq-question" aria-expanded="false">
+              <span>How does the matching process work? Can I see and choose interns?</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Our matching process is designed to find the best fit for your company's needs. After you sign up as a Host Company, we provide you with a curated selection of recommended interns based on their skills, qualifications, and interests. You will have the opportunity to review their profiles — including resumes, academic backgrounds, and additional materials they have submitted.</p>
+                <p>You can also conduct interviews with candidates to ensure a good fit for your organization. Ultimately, the choice is yours, and you have the flexibility to select the intern who best aligns with your requirements.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-c-4">
+            <button class="faq-question" aria-expanded="false">
+              <span>What is the maximum number of interns I can take?</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>There is no maximum limit to the number of interns you can host. We understand that different organizations have varying needs and capacities. Whether you are looking to host a single intern or a larger group, we can accommodate your requirements. Our team will work closely with you to determine the appropriate number of interns that aligns with your project goals and resources.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-c-5">
+            <button class="faq-question" aria-expanded="false">
+              <span>What are the logistics regarding start dates, duration, and hours?</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>The logistics of hosting virtual interns can be tailored to your company's needs through matching you with an intern with a start date and duration that suits your timeline. Interns will have set start dates (always starting on a Monday and ending on a Friday) for their internships, as well as a set duration of 4 to 16 weeks and 10 to 30 hours per week.</p>
+                <p>It's our role to match you with an intern that best suits what you're both looking for. Our team will guide you through the logistics to ensure a seamless and mutually beneficial internship experience.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-c-6">
+            <button class="faq-question" aria-expanded="false">
+              <span>How much time do we need to dedicate as a Host Company and what's expected of us?</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>First and foremost, every company that wants to host interns through our platform needs to meet our Host Company requirements. Whilst there is no cost involved for companies to host interns, we expect a high level of responsiveness and engagement with our internship process. This includes:</p>
+                <p>• Completion of Project Placement Plans (PPPs) — either created from scratch or using one of our 250+ ready-made templates<br/>• Weekly checkpoints completed<br/>• Pre- and post-program evaluations of the intern and experience completed</p>
+                <p>It's up to you to decide the structure of your internship, but it is mandatory that you meet on a video or audio call with your intern(s) at least once per week (most companies choose to check in daily). Above all, we expect professionalism to ensure this is a positive experience for all parties.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-c-7">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do I qualify as a company? Are there specific requirements or timezone/country restrictions?</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>We welcome Host Companies from around the world to participate in our program. To qualify as a Host Company, we have specific criteria based on factors such as the number of employees, website and LinkedIn quality, business registration, English proficiency, the variety of internship projects available, and experience with remote work.</p>
+                <p>We welcome companies from different timezones and countries. If you're interested in joining our network, please sign up and we can discuss the potential partnership.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-c-8">
+            <button class="faq-question" aria-expanded="false">
+              <span>What support does ByteWing offer?</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>From the start of the experience, Host Companies are supported by our team. Firstly, you can select from one of our 250+ ready-made project plans for your internship or create your own. Our team will help you design an internship that meets your needs as a company and provides a beneficial learning experience for the intern.</p>
+                <p>We support the intern throughout their internship with employability courses, webinars, Slack channels, weekly check-ins, coaching sessions, and more — to ensure they are successful in the internship and that you achieve the results you need for your project.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-c-9">
+            <button class="faq-question" aria-expanded="false">
+              <span>What happens when the internship starts?</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>When the internship starts, ByteWing supports both Host Companies and interns throughout the program. Host companies provide guidance and supervision, while we offer comprehensive support. We assist with onboarding, provide resources for professional development, conduct regular check-ins, and facilitate open communication channels.</p>
+                <p>Interns receive certificates of completion recognizing their participation, and Host Companies are acknowledged for their contribution to their professional development. It's a win-win for everyone involved.</p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /faq-accordion -->
+
+        <!-- Still have questions CTA -->
+        <div class="still-questions">
+          <div class="still-questions-inner">
+            <h3>Still Have Questions?</h3>
+            <p>Simply sign up to the platform to connect with one of our advisors who can answer any of your questions personally and guide you through the entire process.</p>
+            <a href="#" class="btn-primary">Sign Up &amp; Talk to an Advisor</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="quick-links">
+      <div class="section-container">
+        <h2>Explore More for Companies</h2>
+        <div class="quick-links-grid">
+          <a href="companies-host.html" class="quick-link-card">
+            <div class="ql-icon">🏢</div>
+            <h4>Host an Intern</h4>
+            <p>Learn how to start hiring pre-vetted remote interns at zero cost.</p>
+          </a>
+          <a href="companies-how.html" class="quick-link-card">
+            <div class="ql-icon">⚙️</div>
+            <h4>How It Works</h4>
+            <p>Three simple steps to unlock global talent for your business.</p>
+          </a>
+          <a href="index.html" class="quick-link-card">
+            <div class="ql-icon">🌍</div>
+            <h4>Back to Home</h4>
+            <p>Explore the full ByteWing platform and all it has to offer.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo-link">
+            <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+            <span class="logo-text">ByteWing</span>
+          </a>
+          <p class="footer-tagline">Shaping tomorrow's workforce, one internship at a time.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/><path stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"/></svg></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="social-btn" aria-label="YouTube"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <h5>Companies</h5>
+          <ul>
+            <li><a href="companies-host.html">Host an Intern</a></li>
+            <li><a href="companies-how.html">How It Works</a></li>
+            <li><a href="companies-faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Educators</h5>
+          <ul>
+            <li><a href="educators-universities.html">Universities</a></li>
+            <li><a href="educators-bootcamps.html">Bootcamps</a></li>
+            <li><a href="educators-governments.html">Governments</a></li>
+            <li><a href="educators-affiliates.html">Affiliates</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Interns</h5>
+          <ul>
+            <li><a href="interns-apply.html">Apply for Internships</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="index.html#career-fields">Career Fields</a></li>
+            <li><a href="index.html#stories">Experiences</a></li>
+            <li><a href="index.html#faqs">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>About Us</h5>
+          <ul>
+            <li><a href="index.html#mission">Our Mission</a></li>
+            <li><a href="index.html#team">Our Team</a></li>
+            <li><a href="index.html#join">Join Us</a></li>
+            <li><a href="index.html#press">Press</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ByteWing. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+  <script type="module" src="auth-sync.js"></script>
+  <script src="main.js"></script>
+  <style>.active-link { color: var(--teal-mid) !important; font-weight: 700 !important; }</style>
+
+  <script>
+    // Override FAQ accordion for this page (target #faq-accordion only)
+    document.querySelectorAll('#faq-accordion .faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('#faq-accordion .faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', false);
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          q.setAttribute('aria-expanded', true);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

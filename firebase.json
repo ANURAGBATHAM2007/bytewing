@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "mindwell-hackathon-abbe2",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

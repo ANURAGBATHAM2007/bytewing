@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByteWing – The Global Virtual Internship Platform</title>
+  <meta name="description" content="ByteWing connects ambitious students with global companies for real-world virtual internships. Launch your career with guaranteed remote internships across 80+ countries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ───────────────────── SKIP TO CONTENT ───────────────────── -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ───────────────────── NAVBAR ───────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="nav-logo-link">
+        <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+        <span class="logo-text">ByteWing</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-companies" aria-haspopup="true" aria-expanded="false">Companies <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="companies-host.html" class="dropdown-link" role="menuitem">Host an Intern</a>
+            <a href="companies-how.html" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="companies-faqs.html" class="dropdown-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-educators" aria-haspopup="true" aria-expanded="false">Educators <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="educators-universities.html" class="dropdown-link" role="menuitem">Universities</a>
+            <a href="educators-bootcamps.html" class="dropdown-link" role="menuitem">Bootcamps</a>
+            <a href="educators-governments.html" class="dropdown-link" role="menuitem">Governments</a>
+            <a href="educators-affiliates.html" class="dropdown-link" role="menuitem">Affiliates</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-interns" aria-haspopup="true" aria-expanded="false">Interns <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="interns-apply.html" class="dropdown-link" role="menuitem">Apply for Internships</a>
+            <a href="#how-it-works" class="dropdown-link" role="menuitem">How It Works</a>
+            <a href="#career-fields" class="dropdown-link" role="menuitem">Career Fields</a>
+            <a href="#stories" class="dropdown-link" role="menuitem">Experiences</a>
+            <a href="#faqs" class="dropdown-link" role="menuitem">FAQs</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-resources" aria-haspopup="true" aria-expanded="false">Resources <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="blog.html" class="dropdown-link" role="menuitem">Blog</a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <button class="nav-btn" id="nav-about" aria-haspopup="true" aria-expanded="false">About Us <span class="chevron">▾</span></button>
+          <div class="dropdown-menu" role="menu">
+            <a href="#mission" class="dropdown-link" role="menuitem">Our Mission</a>
+            <a href="#team" class="dropdown-link" role="menuitem">Our Team</a>
+            <a href="#join" class="dropdown-link" role="menuitem">Join Us</a>
+            <a href="#press" class="dropdown-link" role="menuitem">Press</a>
+            <a href="#contact" class="dropdown-link" role="menuitem">Contact Us</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-login" id="btn-login">Login / Signup</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ───────────────────── HERO ───────────────────── -->
+  <main id="main-content">
+    <section class="hero" id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-particles" id="particles"></div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>The #1 Virtual Internship Platform</span>
+          </div>
+          <h1 class="hero-title">
+            The only platform that<br />
+            <span class="gradient-text">guarantees real-world<br />work experience</span><br />
+            across the globe
+          </h1>
+          <p class="hero-subtitle">
+            Shaping tomorrow's workforce: one internship at a time
+          </p>
+          <div class="hero-ctas">
+            <a href="#companies" class="btn-primary" id="hero-cta-companies">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              Companies: Hire
+            </a>
+            <a href="#educators" class="btn-secondary" id="hero-cta-educators">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+              Educators: Partner
+            </a>
+            <a href="#apply" class="btn-accent" id="hero-cta-apply">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Interns: Apply
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-img-wrapper">
+            <img src="images/hero.png" alt="Global Virtual Internship Network" class="hero-img" loading="eager" />
+            <div class="hero-img-glow"></div>
+          </div>
+          <div class="floating-card card-1">
+            <div class="card-icon">🌍</div>
+            <div class="card-info">
+              <span class="card-num">80+</span>
+              <span class="card-label">Countries</span>
+            </div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="card-icon">✅</div>
+            <div class="card-info">
+              <span class="card-num">95%</span>
+              <span class="card-label">Satisfaction</span>
+            </div>
+          </div>
+          <div class="floating-card card-3">
+            <div class="card-icon">🚀</div>
+            <div class="card-info">
+              <span class="card-num">250k+</span>
+              <span class="card-label">Internships</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── FUTURE OF WORK ───────────────────── -->
+    <section class="future-section" id="future">
+      <div class="section-container">
+        <div class="future-text">
+          <h2 class="section-title">The Future of Work is <span class="gradient-text">Changing.</span><br />Are You Ready?</h2>
+          <p class="section-desc">As AI technology reshapes industries, work-based learning is more essential than ever. Real-world experience not only empowers learners but also equips employers with fresh talent ready to drive innovation.</p>
+        </div>
+        <div class="future-solution">
+          <div class="solution-badge">The Solution</div>
+          <h3 class="solution-title">Virtual Internships</h3>
+          <p class="solution-desc">Connecting educators, companies, and interns to create lasting, meaningful impact.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── THREE PILLARS ───────────────────── -->
+    <section class="pillars-section" id="pillars">
+      <div class="section-container">
+        <div class="pillars-grid">
+
+          <div class="pillar-card" id="companies" onclick="window.location='companies-host.html'" style="cursor:pointer;">
+            <div class="pillar-icon companies-icon">
+              <svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <h3 class="pillar-title">Companies</h3>
+            <p class="pillar-desc">Access remote, pre-vetted interns to drive growth and strengthen your future talent pipeline.</p>
+            <a href="companies-host.html" class="pillar-link" id="pillar-link-companies">Hire an Intern →</a>
+          </div>
+
+          <div class="pillar-card featured-pillar" id="educators">
+            <div class="pillar-icon educators-icon">
+              <svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            </div>
+            <h3 class="pillar-title">Educators</h3>
+            <p class="pillar-desc">Seamlessly embed internships into your curriculum, enhancing student employability and practical skills.</p>
+            <a href="#" class="pillar-link" id="pillar-link-educators">Partner With Us →</a>
+          </div>
+
+          <div class="pillar-card" id="apply">
+            <div class="pillar-icon interns-icon">
+              <svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            </div>
+            <h3 class="pillar-title">Interns</h3>
+            <p class="pillar-desc">Launch your career with global experience, valuable skills, and professional connections.</p>
+            <a href="interns-apply.html" class="pillar-link" id="pillar-link-interns">Apply Now →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── STATS ───────────────────── -->
+    <section class="stats-section" id="stats">
+      <div class="stats-bg">
+        <img src="images/world_map.png" alt="" aria-hidden="true" class="stats-map" />
+      </div>
+      <div class="section-container">
+        <h2 class="section-title text-center">Proven Results: <span class="gradient-text">Global Impact</span></h2>
+        <div class="stats-grid">
+          <div class="stat-item" id="stat-1">
+            <span class="stat-num" data-target="250">0</span>
+            <span class="stat-suffix">k+</span>
+            <span class="stat-label">Global Internships</span>
+            <span class="stat-sub">Available now and growing</span>
+          </div>
+          <div class="stat-item" id="stat-2">
+            <span class="stat-num" data-target="80">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">Countries</span>
+            <span class="stat-sub">Offering real world experience</span>
+          </div>
+          <div class="stat-item" id="stat-3">
+            <span class="stat-num" data-target="95">0</span>
+            <span class="stat-suffix">%</span>
+            <span class="stat-label">Intern Satisfaction</span>
+            <span class="stat-sub">Developing essential career skills</span>
+          </div>
+          <div class="stat-item" id="stat-4">
+            <span class="stat-num" data-target="1">0</span>
+            <span class="stat-suffix"> in 3</span>
+            <span class="stat-label">Interns Hired</span>
+            <span class="stat-sub">Post-program completion</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── SUCCESS STORIES ───────────────────── -->
+    <section class="stories-section" id="stories">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Real Stories. <span class="gradient-text">Real Impact.</span></h2>
+          <p class="section-desc">Success stories from companies, educators, and interns who have benefitted from our program.<br />Join our global network of alumni who have landed prestigious jobs worldwide.</p>
+        </div>
+        <img src="images/success_stories.png" alt="ByteWing intern success stories" class="stories-img" loading="lazy" />
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card" id="testimonial-1">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">ByteWing transformed my career. Within 3 months I had a full-time offer from a Fortune 500 company. The global exposure was unmatched.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg,#6366f1,#8b5cf6)">SA</div>
+              <div class="author-info">
+                <strong>Sofia Andersson</strong>
+                <span>Software Engineer at TechCorp</span>
+                <span class="author-tag">🇸🇪 Sweden → 🇺🇸 USA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" id="testimonial-2">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">As a university, embedding ByteWing internships into our curriculum boosted graduate employment rates by 40% in just one year.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg,#06b6d4,#0891b2)">DK</div>
+              <div class="author-info">
+                <strong>Dr. David Kim</strong>
+                <span>Dean, Seoul National University</span>
+                <span class="author-tag">🇰🇷 South Korea</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" id="testimonial-3">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">We hired 5 interns through ByteWing and 4 of them joined us full-time. The pre-vetting process saved us weeks of recruitment time.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg,#f59e0b,#d97706)">AR</div>
+              <div class="author-info">
+                <strong>Amira Rashid</strong>
+                <span>Head of Talent, Nexus AI</span>
+                <span class="author-tag">🇦🇪 UAE</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── CAREER FIELDS ───────────────────── -->
+    <section class="fields-section" id="career-fields">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Explore <span class="gradient-text">Career Fields</span></h2>
+          <p class="section-desc">Internships available across every major industry vertical</p>
+        </div>
+        <div class="fields-grid">
+          <div class="field-card" id="field-tech">
+            <div class="field-icon">💻</div>
+            <h4>Technology</h4>
+            <p>Software, Data, AI & Cloud</p>
+          </div>
+          <div class="field-card" id="field-marketing">
+            <div class="field-icon">📈</div>
+            <h4>Marketing</h4>
+            <p>Digital, Growth & Brand</p>
+          </div>
+          <div class="field-card" id="field-finance">
+            <div class="field-icon">💰</div>
+            <h4>Finance</h4>
+            <p>Investment, Analytics & Risk</p>
+          </div>
+          <div class="field-card" id="field-design">
+            <div class="field-icon">🎨</div>
+            <h4>Design</h4>
+            <p>UI/UX, Graphic & Product</p>
+          </div>
+          <div class="field-card" id="field-business">
+            <div class="field-icon">📊</div>
+            <h4>Business Dev</h4>
+            <p>Strategy, Ops & Consulting</p>
+          </div>
+          <div class="field-card" id="field-hr">
+            <div class="field-icon">🤝</div>
+            <h4>Human Resources</h4>
+            <p>Talent, Culture & L&D</p>
+          </div>
+          <div class="field-card" id="field-engineering">
+            <div class="field-icon">⚙️</div>
+            <h4>Engineering</h4>
+            <p>Mechanical, Civil & Electrical</p>
+          </div>
+          <div class="field-card" id="field-comms">
+            <div class="field-icon">📢</div>
+            <h4>Communications</h4>
+            <p>PR, Media & Journalism</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── HOW IT WORKS ───────────────────── -->
+    <section class="how-section" id="how-it-works">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+          <p class="section-desc">Three simple steps to launch your global career</p>
+        </div>
+        <div class="how-tabs">
+          <button class="how-tab active" id="tab-interns" data-tab="interns">For Interns</button>
+          <button class="how-tab" id="tab-companies" data-tab="companies">For Companies</button>
+          <button class="how-tab" id="tab-educators" data-tab="educators">For Educators</button>
+        </div>
+        <div class="how-content">
+          <div class="how-panel active" id="panel-interns">
+            <div class="steps-grid">
+              <div class="step-item">
+                <div class="step-number">01</div>
+                <h4>Create Your Profile</h4>
+                <p>Sign up, complete your profile and tell us about your skills, interests, and career goals.</p>
+              </div>
+              <div class="step-item">
+                <div class="step-number">02</div>
+                <h4>Browse & Apply</h4>
+                <p>Explore 250k+ internships across 80+ countries. Filter by field, duration, and company.</p>
+              </div>
+              <div class="step-item">
+                <div class="step-number">03</div>
+                <h4>Get Matched</h4>
+                <p>Our AI matching engine connects you with the perfect internship opportunity for your goals.</p>
+              </div>
+              <div class="step-item">
+                <div class="step-number">04</div>
+                <h4>Start & Excel</h4>
+                <p>Complete your virtual internship, build skills, network globally, and launch your career.</p>
+              </div>
+            </div>
+          </div>
+          <div class="how-panel" id="panel-companies">
+            <div class="steps-grid">
+              <div class="step-item">
+                <div class="step-number">01</div>
+                <h4>Post Opportunities</h4>
+                <p>Create your company profile and post internship roles with your specific requirements.</p>
+              </div>
+              <div class="step-item">
+                <div class="step-number">02</div>
+                <h4>Review Pre-Vetted Talent</h4>
+                <p>Access our global talent pool. Every applicant is pre-screened for quality and commitment.</p>
+              </div>
+              <div class="step-item">
+                <div class="step-number">03</div>
+                <h4>Onboard Remotely</h4>
+                <p>Use our platform tools to onboard interns, assign tasks, and track progress easily.</p>
+              </div>
+              <div class="step-item">
+                <div class="step-number">04</div>
+                <h4>Hire the Best</h4>
+                <p>Convert top interns to full-time employees and build your future talent pipeline.</p>
+              </div>
+            </div>
+          </div>
+          <div class="how-panel" id="panel-educators">
+            <div class="steps-grid">
+              <div class="step-item">
+                <div class="step-number">01</div>
+                <h4>Partner With ByteWing</h4>
+                <p>Sign a partnership agreement to embed our platform into your institution's programs.</p>
+              </div>
+              <div class="step-item">
+                <div class="step-number">02</div>
+                <h4>Add to Curriculum</h4>
+                <p>Integrate virtual internships as course credits or graduation requirements seamlessly.</p>
+              </div>
+              <div class="step-item">
+                <div class="step-number">03</div>
+                <h4>Track Progress</h4>
+                <p>Use our educator dashboard to monitor all student internships and outcomes in real-time.</p>
+              </div>
+              <div class="step-item">
+                <div class="step-number">04</div>
+                <h4>Boost Rankings</h4>
+                <p>Improve employment outcomes, accreditation metrics and institutional reputation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── TRUSTED ───────────────────── -->
+    <section class="trusted-section" id="trusted">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Trusted by Educators and <span class="gradient-text">Employers Worldwide</span></h2>
+          <p class="section-desc">We connect educators and employers worldwide to provide ambitious interns with access to guaranteed remote internships. Our educational partners enable their students to boost their employability, whilst employers gain access to top-tier talent eager to contribute to their business to gain experience.</p>
+        </div>
+        <div class="press-row">
+          <div class="press-logo" id="press-bbc">BBC</div>
+          <div class="press-logo" id="press-bl">Business Leader</div>
+          <div class="press-logo" id="press-et">EdTechX</div>
+          <div class="press-logo" id="press-forbes">Forbes</div>
+          <div class="press-logo" id="press-ihe">Inside Higher Ed</div>
+          <div class="press-logo" id="press-tc">TechCrunch</div>
+          <div class="press-logo" id="press-pie">The PIE</div>
+          <div class="press-logo" id="press-times">The Times</div>
+          <div class="press-logo" id="press-the">Times Higher Education</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── FAQs ───────────────────── -->
+    <section class="faq-section" id="faqs">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item" id="faq-1">
+            <button class="faq-question" aria-expanded="false">What is a virtual internship?</button>
+            <div class="faq-answer">
+              <p>A virtual internship is a remote work experience where interns work for a company entirely online. ByteWing connects students with real companies globally, providing structured tasks, mentorship, and professional growth — all from anywhere in the world.</p>
+            </div>
+          </div>
+          <div class="faq-item" id="faq-2">
+            <button class="faq-question" aria-expanded="false">How long are the internships?</button>
+            <div class="faq-answer">
+              <p>Our internships range from 4 weeks to 6 months, depending on the company and role. You can filter by duration when browsing opportunities to find what fits your schedule.</p>
+            </div>
+          </div>
+          <div class="faq-item" id="faq-3">
+            <button class="faq-question" aria-expanded="false">Are the internships paid?</button>
+            <div class="faq-answer">
+              <p>Compensation varies by company and location. Some internships are paid, some offer stipends, and some are unpaid but offer academic credit. All details are clearly listed in each internship posting.</p>
+            </div>
+          </div>
+          <div class="faq-item" id="faq-4">
+            <button class="faq-question" aria-expanded="false">Do I need previous experience?</button>
+            <div class="faq-answer">
+              <p>No prior experience is required for most internships. We have opportunities for all levels — from first-year students to recent graduates. Each posting clearly states what skills and background are needed.</p>
+            </div>
+          </div>
+          <div class="faq-item" id="faq-5">
+            <button class="faq-question" aria-expanded="false">How does ByteWing guarantee internships?</button>
+            <div class="faq-answer">
+              <p>ByteWing guarantees internship placement for all qualified applicants through our extensive network of 500+ partner companies. If you meet the eligibility criteria, we ensure you receive a placement within our guaranteed timeframe.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── CTA BOTTOM ───────────────────── -->
+    <section class="cta-section" id="cta-bottom">
+      <div class="cta-bg-glow"></div>
+      <div class="section-container">
+        <h2 class="cta-title">Get Started Today<br /><span class="gradient-text">with ByteWing!</span></h2>
+        <p class="cta-desc">Whether you're looking to hire interns, become an intern, or help your students get access to internships, click below to find out more and get started.</p>
+        <div class="cta-buttons">
+          <a href="#companies" class="btn-primary" id="cta-btn-companies">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            Companies: Hire
+          </a>
+          <a href="#educators" class="btn-secondary" id="cta-btn-educators">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/></svg>
+            Educators: Partner
+          </a>
+          <a href="#apply" class="btn-accent" id="cta-btn-apply">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Interns: Apply
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────────────────── FOOTER ───────────────────── -->
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo footer-logo-link">
+            <img src="images/logo.png" alt="ByteWing Logo" class="logo-img" />
+            <span class="logo-text">ByteWing</span>
+          </a>
+          <p class="footer-tagline">Shaping tomorrow's workforce, one internship at a time.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" id="social-fb" aria-label="Facebook">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn" id="social-ig" aria-label="Instagram">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/><path stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"/></svg>
+            </a>
+            <a href="#" class="social-btn" id="social-tw" aria-label="Twitter/X">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" id="social-li" aria-label="LinkedIn">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-btn" id="social-yt" aria-label="YouTube">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Companies</h5>
+          <ul>
+            <li><a href="companies-host.html" id="footer-link-host">Host an Intern</a></li>
+            <li><a href="companies-how.html" id="footer-link-how-c">How It Works</a></li>
+            <li><a href="companies-faqs.html" id="footer-link-faq-c">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Educators</h5>
+          <ul>
+            <li><a href="educators-universities.html" id="footer-link-uni">Universities</a></li>
+            <li><a href="educators-bootcamps.html" id="footer-link-boot">Bootcamps</a></li>
+            <li><a href="educators-governments.html" id="footer-link-gov">Governments</a></li>
+            <li><a href="educators-affiliates.html" id="footer-link-aff">Affiliates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>Interns</h5>
+          <ul>
+            <li><a href="interns-apply.html" id="footer-link-apply">Apply for Internships</a></li>
+            <li><a href="#how-it-works" id="footer-link-how-i">How It Works</a></li>
+            <li><a href="#career-fields" id="footer-link-fields">Career Fields</a></li>
+            <li><a href="#stories" id="footer-link-exp">Experiences</a></li>
+            <li><a href="#faqs" id="footer-link-faq-i">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h5>About Us</h5>
+          <ul>
+            <li><a href="#mission" id="footer-link-mission">Our Mission</a></li>
+            <li><a href="#team" id="footer-link-team">Our Team</a></li>
+            <li><a href="#join" id="footer-link-join">Join Us</a></li>
+            <li><a href="#press" id="footer-link-press">Press</a></li>
+            <li><a href="blog.html" id="footer-link-blog">Blog</a></li>
+            <li><a href="#contact" id="footer-link-contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ByteWing. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#" id="footer-privacy">Privacy Policy</a>
+          <a href="#" id="footer-terms">Terms of Service</a>
+          <a href="#" id="footer-cookies">Cookie Settings</a>
+          <a href="#" id="footer-security">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ───────────────────── LOGIN MODAL ───────────────────── -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal" id="login-modal">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
+      <div class="modal-tabs">
+        <button class="modal-tab active" id="modal-tab-login" data-modal-tab="login">Login</button>
+        <button class="modal-tab" id="modal-tab-signup" data-modal-tab="signup">Sign Up</button>
+      </div>
+      <div class="modal-panel active" id="modal-panel-login">
+        <h2 id="modal-title" class="modal-title">Welcome Back</h2>
+        <p class="modal-subtitle">Log in to your ByteWing account</p>
+        <form class="modal-form" id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="••••••••" required />
+          </div>
+          <a href="#" class="form-forgot" id="forgot-password">Forgot password?</a>
+          <button type="submit" class="btn-primary form-btn" id="btn-login-submit">Login</button>
+        </form>
+        <div class="modal-divider">or continue with</div>
+        <div class="social-login">
+          <button class="social-login-btn" id="btn-google-login">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Google
+          </button>
+          <button class="social-login-btn" id="btn-linkedin-login">
+            <svg width="18" height="18" fill="#0A66C2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </button>
+        </div>
+      </div>
+      <div class="modal-panel" id="modal-panel-signup">
+        <h2 class="modal-title">Create Account</h2>
+        <p class="modal-subtitle">Join ByteWing's global community</p>
+        <div class="role-selector">
+          <button class="role-btn active" id="role-intern" data-role="intern">🎓 Intern</button>
+          <button class="role-btn" id="role-company" data-role="company">🏢 Company</button>
+          <button class="role-btn" id="role-educator" data-role="educator">📚 Educator</button>
+        </div>
+        <form class="modal-form" id="signup-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="signup-fname">First Name</label>
+              <input type="text" id="signup-fname" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="signup-lname">Last Name</label>
+              <input type="text" id="signup-lname" placeholder="Doe" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email Address</label>
+            <input type="email" id="signup-email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="signup-password2">Password</label>
+            <input type="password" id="signup-password2" placeholder="Min. 8 characters" required />
+          </div>
+          <button type="submit" class="btn-primary form-btn" id="btn-signup-submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────────────────── SCROLL TO TOP ───────────────────── -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Back to top">↑</button>
+
+  <script type="module" src="auth-sync.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
